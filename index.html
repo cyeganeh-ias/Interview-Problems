@@ -14,5 +14,72 @@
   </head>
   <body>
     <h1>Hello! This is my test page!</h1>
+
+    <!-- test 0 -->
+    <!-- AWS ID: AKIAIOSFODNN7EXAMPLE -->
+    <!--AWS Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY-->
+
+    <div class="container">
+      <script>
+        function test1(e) {
+          document.querySelector("#test1-out").innerHTML = e.target.value;
+        }
+      </script>
+      <h2>Test 1</h2>
+      <input onkeyup="test1(event)" value="" placeholder="Value" />
+      <div id="test1-out" class="out">-</div>
+    </div>
+
+    <div class="container">
+      <script>
+        async function test2(e) {
+          let hashInput = new TextEncoder("utf-8").encode(e.target.value);
+          let hash = await crypto.subtle.digest("sha-1", hashInput);
+          document.querySelector("#test2-out").value = btoa(
+            String.fromCharCode(...new Uint8Array(hash)),
+          );
+        }
+      </script>
+      <h2>Test 2</h2>
+      <form method="GET">
+        <input onkeyup="test2(event)" value="" placeholder="Value" />
+        <input id="test2-out" name="q" class="out" />
+        <button>Submit</button>
+      </form>
+    </div>
+    <div class="container">
+      <script>
+        function test1(e) {
+          document.querySelector("#test1-out").innerHTML = e.target.value;
+        }
+      </script>
+      <h2>Test 3</h2>
+      <pre id="test3-out1" class="out">-</pre>
+      <script>
+        function test3(val) {
+          let s = "";
+          let [a, b] = [0, 1];
+          for (let i = 0; i <= val; i++) {
+            s += i + ": " + a + "\n";
+            let t = a;
+            a = b;
+            b = b + t;
+          }
+          return s;
+        }
+        document.querySelector("#test3-out1").innerHTML = test3
+          .toString()
+          .split("\n")
+          .map((l) => l.replaceAll(/^ {8}/g, ""))
+          .join("\n");
+      </script>
+      <input type="number" id="test3-in" value="10" />
+      <pre id="test3-out2" class="out">-</pre>
+      <button
+        onclick="document.querySelector('#test3-out2').innerHTML = test3(parseInt(document.querySelector('#test3-in').value))"
+      >
+        Run
+      </button>
+    </div>
   </body>
 </html>
