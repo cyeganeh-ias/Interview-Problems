@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0aa;
   border: 1px solid #000;
   border-radius: 1rem;
   width: 90%;
@@ -48,4 +48,15 @@ h3 {
 pre {
   text-align: left !important;
   margin-bottom: 0.5rem;
+}
+.hljs {
+  background-color: #0002 !important;
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 2rem;
+}
+
+button {
+  cursor: pointer;
 }
