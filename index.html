@@ -1,71 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"
-    />
-    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-    <link rel="stylesheet" href="./assets/styles.css" />
-    <script src="./assets/scripts.js" defer></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+        <link rel="stylesheet" href="./assets/styles.css" />
+        <script src="./assets/scripts.js" defer></script>
 
-    <title>Test Page</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Test page of AppSec Challenges</h1>
+        <title>Test Page</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Test page of AppSec Challenges</h1>
 
-      <div id="test0" class="container test">
-        <h2>Test 0</h2>
-        <p>Analyze this test carefully.</p>
+            <div id="test0" class="container test">
+                <h2>Test 0</h2>
+                <p>Analyze this test carefully.</p>
 
-        <!-- AWS ID: AKIAIOSFODNN7EXAMPLE -->
-        <!-- AWS Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -->
-      </div>
+                <!-- AWS ID: AKIAIOSFODNN7EXAMPLE -->
+                <!-- AWS Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -->
+            </div>
 
-      <div id="test1" class="container test">
-        <h2>Test 1</h2>
-        <p>
-          Describe anything you can learn from looking at each of these 3
-          images.
-        </p>
-        <img src="./assets/p1.1.jpeg" /><br />
-        <img src="./assets/p1.2.jpeg" /><br />
-        <img src="./assets/p1.3.jpeg" /><br />
-      </div>
+            <div id="test1" class="container test">
+                <h2>Test 1</h2>
+                <p>
+                    Describe anything you can learn from looking at each of
+                    these 3 images.
+                </p>
+                <img src="./assets/p1.1.jpeg" /><br />
+                <img src="./assets/p1.2.jpeg" /><br />
+                <img src="./assets/p1.3.jpeg" /><br />
+            </div>
 
-      <div id="test2" class="container test">
-        <h2>Test 2</h2>
-        <p>Find the DOM based security vulnerability.</p>
+            <div id="test2" class="container test">
+                <h2>Test 2</h2>
+                <p>Find the DOM based security vulnerability.</p>
 
-        <input onkeyup="test2(event)" value="" placeholder="Value" />
+                <input onkeyup="test2(event)" value="" placeholder="Value" />
 
-        <div id="test2-out" class="out">-</div>
-        <br />
+                <div id="test2-out" class="out">-</div>
+                <br />
 
-        <script>
-          function test2(e) {
-            document.querySelector("#test2-out").innerHTML =
-              "Search for: " + e.target.value;
-          }
-        </script>
-      </div>
+                <script>
+                    function test2(e) {
+                        document.querySelector("#test2-out").innerHTML =
+                            "Search for: " + e.target.value;
+                    }
+                </script>
+            </div>
 
-      <div id="test3" class="container test">
-        <h2>Test 3</h2>
-        <p>
-          Describe as many security vulnerabilities as you can find in this java
-          code snippet.
-        </p>
+            <div id="test3" class="container test">
+                <h2>Test 3</h2>
+                <p>
+                    Describe as many security vulnerabilities as you can find in
+                    this java code snippet.
+                </p>
 
-        <pre><code class="language-java">
+                <pre><code class="language-java">
 public static void makeUserSignUp(String username, String password, Connection connection) throws ... {
   try {
     Statement statement = connection.createStatement();
@@ -84,166 +84,189 @@ public static void makeUserSignUp(String username, String password, Connection c
   }
 }
         </code></pre>
-      </div>
+            </div>
 
-      <div id="test4" class="container test">
-        <h2>Test 4</h2>
-        <p>
-          Take a look at this function and try to figure out what the code may
-          do.
-        </p>
+            <div id="test4" class="container test">
+                <h2>Test 4</h2>
+                <p>
+                    Take a look at this function and try to figure out what the
+                    code may do.
+                </p>
 
-        <pre><code class="language-rust">
+                <pre><code class="language-rust">
 use std::iter::zip;
 
 fn main() {
-    for s in [123, 321, 1234321, 985696589] {
-        println!("{:?}: {}", s, foo(s))
+    let mut tests: Vec&lt;u8&gt; = Vec::new();
+
+    for i in 10..255 {
+        if i % 2 == 0 {
+            tests.push(i);
+        }
+    }
+
+    for s in tests {
+        if foo(s) {
+            println!("{s}");
+        }
     }
 }
 
-fn foo(n: impl ToString) -> bool {
-    let ns = n.to_string();
+fn foo&lt;T: ToString&gt;(n: T) -> bool {
+    let ns: String = n.to_string();
     let i1 = ns.chars();
     let i2 = ns.chars().rev();
 
+    let mut result = true;
     for (a, b) in zip(i1, i2) {
         if a != b {
-            return false;
+            result = false;
         }
     }
-    return true;
+    result
 }
         </code></pre>
-        <script>
-          async function test4(e) {}
-        </script>
-      </div>
+                <script>
+                    async function test4(e) {}
+                </script>
+            </div>
 
-      <div id="test5" class="container test">
-        <h2>Test 5</h2>
-        <p>
-          Analyze and report your understanding of the security concerns of this
-          situation.
-        </p>
+            <div id="test5" class="container test">
+                <h2>Test 5</h2>
+                <p>
+                    Analyze and report your understanding of the security
+                    concerns of this situation.
+                </p>
 
-        <div class="container">
-          <h2 id="the-vulnerable-voting-system-a-deep-dive">
-            The Vulnerable Voting System: A Deep Dive
-          </h2>
-          <p>
-            <strong>Context:</strong> You are a security consultant tasked with
-            evaluating the security posture of &quot;VoteWise,&quot; a novel
-            online voting platform designed to modernize elections. VoteWise
-            promises a seamless user experience, encompassing easy registration,
-            secure ballot casting, and immediate access to election results.
-            However, preliminary analysis suggests potential vulnerabilities
-            that must be mitigated before public deployment.
-          </p>
-          <br />
-          <p>VoteWise aims to provide the following functionalities:</p>
-          <ul>
-            <li>
-              <strong>User Registration:</strong> Allows eligible voters to
-              create accounts, requiring providing necessary personal
-              information for verification to prevent fraudulent sign-ups.
-            </li>
-            <li>
-              <strong>Candidate Nomination:</strong> Enables the registration of
-              candidates for various elections.
-            </li>
-            <li>
-              <strong>Ballot Casting:</strong> Provides a secure and
-              user-friendly interface for voters to cast their ballots
-              electronically from home.
-            </li>
-            <li>
-              <strong>Vote Counting &amp; Tabulation:</strong> Automatically
-              processes votes and calculates election results in real time.
-            </li>
-            <li>
-              <strong>Result Viewing:</strong> Allows users to view election
-              results as they are tallied.
-            </li>
-          </ul>
-          <br />
-          <p><strong>System Architecture:</strong></p>
-          <ul>
-            <li>
-              <p>
-                <strong>Frontend:</strong> The user interface is built using
-                common web technologies (JavaScript, HTML, CSS) and designed for
-                accessibility across various browsers.
-              </p>
-            </li>
-            <li>
-              <p>
-                <strong>Backend:</strong> The core logic of the system is
-                implemented in a distributed Python app utilizing the Flask
-                framework. This component handles critical functions such as
-                user authentication, session management, vote processing, and
-                result tabulation.
-              </p>
-            </li>
-            <li>
-              <p>
-                <strong>Database:</strong> Sensitive data, including user
-                information (names, passwords, voting records), candidate
-                details, and election outcomes are stored within a relational
-                database management system like PostgreSQL.
-              </p>
-            </li>
-            <li>
-              <p>
-                <strong>Cache:</strong> The system stores some information in a
-                local caching instance system like Redis.
-              </p>
-            </li>
-          </ul>
-          <br />
-          <p><strong>Your Task:</strong></p>
-          <p>
-            As a security expert, you need to identify potential vulnerabilities
-            across all layers of the VoteWise system.
-          </p>
-          <p>
-            Think critically about each component of the VoteWise system and
-            identify potential weaknesses that could compromise the integrity,
-            confidentiality, and availability of the voting process.
-          </p>
+                <div class="container">
+                    <h2 id="the-vulnerable-voting-system-a-deep-dive">
+                        The Vulnerable Voting System: A Deep Dive
+                    </h2>
+                    <p>
+                        <strong>Context:</strong> You are a security consultant
+                        tasked with evaluating the security posture of
+                        &quot;VoteWise,&quot; a novel online voting platform
+                        designed to modernize elections. VoteWise promises a
+                        seamless user experience, encompassing easy
+                        registration, secure ballot casting, and immediate
+                        access to election results. However, preliminary
+                        analysis suggests potential vulnerabilities that must be
+                        mitigated before public deployment.
+                    </p>
+                    <br />
+                    <p>
+                        VoteWise aims to provide the following functionalities:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>User Registration:</strong> Allows eligible
+                            voters to create accounts, requiring providing
+                            necessary personal information for verification to
+                            prevent fraudulent sign-ups.
+                        </li>
+                        <li>
+                            <strong>Candidate Nomination:</strong> Enables the
+                            registration of candidates for various elections.
+                        </li>
+                        <li>
+                            <strong>Ballot Casting:</strong> Provides a secure
+                            and user-friendly interface for voters to cast their
+                            ballots electronically from home.
+                        </li>
+                        <li>
+                            <strong>Vote Counting &amp; Tabulation:</strong>
+                            Automatically processes votes and calculates
+                            election results in real time.
+                        </li>
+                        <li>
+                            <strong>Result Viewing:</strong> Allows users to
+                            view election results as they are tallied.
+                        </li>
+                    </ul>
+                    <br />
+                    <p><strong>System Architecture:</strong></p>
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>Frontend:</strong> The user interface is
+                                built using common web technologies (JavaScript,
+                                HTML, CSS) and designed for accessibility across
+                                various browsers.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Backend:</strong> The core logic of the
+                                system is implemented in a distributed Python
+                                app utilizing the Flask framework. This
+                                component handles critical functions such as
+                                user authentication, session management, vote
+                                processing, and result tabulation.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Database:</strong> Sensitive data,
+                                including user information (names, passwords,
+                                voting records), candidate details, and election
+                                outcomes are stored within a relational database
+                                management system like PostgreSQL.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Cache:</strong> The system stores some
+                                information in a local caching instance system
+                                like Redis.
+                            </p>
+                        </li>
+                    </ul>
+                    <br />
+                    <p><strong>Your Task:</strong></p>
+                    <p>
+                        As a security expert, you need to identify potential
+                        vulnerabilities across all layers of the VoteWise
+                        system.
+                    </p>
+                    <p>
+                        Think critically about each component of the VoteWise
+                        system and identify potential weaknesses that could
+                        compromise the integrity, confidentiality, and
+                        availability of the voting process.
+                    </p>
+                </div>
+                <br />
+            </div>
         </div>
-        <br />
-      </div>
-    </div>
 
-    <script>
-      function toggle_sc(id) {
-        let elm = document.querySelector(`#${id}`);
-        if (elm.style.display === "none") elm.style.display = "block";
-        else elm.style.display = "none";
-      }
-      for (let test_container of document.querySelectorAll(".test")) {
-        let test_inner = test_container.innerHTML.replace(/ {8}/g, "");
+        <script>
+            function toggle_sc(id) {
+                let elm = document.querySelector(`#${id}`);
+                if (elm.style.display === "none") elm.style.display = "block";
+                else elm.style.display = "none";
+            }
+            for (let test_container of document.querySelectorAll(".test")) {
+                let test_inner = test_container.innerHTML.replace(/ {8}/g, "");
 
-        let code = document.createElement("code");
-        let pre = document.createElement("pre");
-        pre.id = `${test_container.id}-sc`;
-        pre.style.display = "none";
-        code.classList.add("language-html");
-        code.textContent = test_inner;
-        pre.appendChild(code);
+                let code = document.createElement("code");
+                let pre = document.createElement("pre");
+                pre.id = `${test_container.id}-sc`;
+                pre.style.display = "none";
+                code.classList.add("language-html");
+                code.textContent = test_inner;
+                pre.appendChild(code);
 
-        test_container.appendChild(pre);
+                test_container.appendChild(pre);
 
-        let button = document.createElement("button");
-        button.id = `${test_container.id}-sc-btn`;
-        button.textContent = "Toggle Show Source Code";
-        button.addEventListener("click", () =>
-          toggle_sc(`${test_container.id}-sc`),
-        );
-        test_container.appendChild(button);
-      }
-      hljs.highlightAll();
-    </script>
-  </body>
+                let button = document.createElement("button");
+                button.id = `${test_container.id}-sc-btn`;
+                button.textContent = "Toggle Show Source Code";
+                button.addEventListener("click", () =>
+                    toggle_sc(`${test_container.id}-sc`),
+                );
+                test_container.appendChild(button);
+            }
+            hljs.highlightAll();
+        </script>
+    </body>
 </html>
